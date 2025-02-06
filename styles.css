@@ -1,0 +1,844 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.2); /* Light transparent background */
+  backdrop-filter: blur(50px); /* Smooth glass effect */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background 0.3s ease-in-out;
+}
+
+.logo {
+  padding: 0px 10px 5px 20px;
+}
+
+nav ul {
+  padding: 20px;
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 200;
+  font-size: 14px;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 105vh;
+  background: url('images/home-1-slider-image-2.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.slider-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+}
+
+.hero-content {
+  position: absolute;
+  top: 45%;
+  right: 5%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  display: none;
+  color: white;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hero-content.active {
+  display: block;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  background-color: #ff9900;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.slider-controls {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slider img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slider img.active {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Header */
+  header {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 10px 0;
+    margin-top: 10px;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    font-size: 16px;
+  }
+
+  /* Hero Section */
+  .hero {
+    height: 80vh;
+  }
+
+  .hero-content {
+    top: 40%;
+    right: 10%;
+  }
+
+  .cta-button {
+    padding: 12px 24px;
+  }
+
+  .slider-controls {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Header */
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  /* Hero Section */
+  .hero-content {
+    top: 50%;
+    right: 5%;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+  }
+}
+
+/* Show the navigation menu when active class is added */
+nav ul.active {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+
+/* ..................delious offer section.......................*/
+
+.offers {
+  background: #f9f9f9;
+  padding: 20px 0;
+}
+
+.offer-container {
+  display: flex;
+  justify-content: center; /* Center items */
+  align-items: center;
+  gap: 50px; /* Adjust spacing */
+  flex-wrap: wrap; /* Wrap items on smaller screens */
+  padding: 20px;
+}
+.offers h2{
+  padding: 60px 20px 20px 20px; /* Add more top padding */
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.offer-description {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  max-width: 800px; /* Control width */
+  margin-left: auto;
+  margin-right: auto; /* Center the description */
+  padding: 0 20px; /* Padding for left and right spacing */
+}
+
+.offer-box {
+  flex: 1 1 200px; /* Responsive width */
+  max-width: 220px; /* Limit max size */
+  text-align: center;
+  /* background: white; */
+  border-radius: 10px;
+  padding: 20px;
+  /* box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.3s ease-in-out;
+}
+
+.offer-box img {
+  width: 50%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.offer-box h3 {
+  font-size: 16px; /* Adjust the size as needed */
+  font-weight: bold;
+}
+.offer-box p {
+  font-size: 10px; /* Adjust the size as needed */
+}
+
+/* Hover Effect */
+.offer-box:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .offer-container {
+      flex-wrap: wrap;
+  }
+  .offer-box {
+      flex: 1 1 100%;
+      max-width: 100%;
+  }
+}
+
+ /* ...............Cafe Harmony section start..................  */
+
+ .cafe-section{
+  background-image: url('images/bg.jpg');
+  padding: 20px 0;
+ }
+ .cafe-section h1 {
+  padding: 60px 20px 20px 20px; /* Add more top padding */
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.cafe-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  flex-wrap: wrap;
+}
+
+.cafe-card {
+  background:none;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.cafe-card:hover {
+  transform: translateY(-5px);
+}
+
+.cafe-card img {
+  width: 260px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cafe-card h3 {
+  font-size: 20px;
+  margin: 15px 0;
+  font-size: 16px; /* Adjust the size as needed */
+  font-weight: bold;
+}
+
+.cafe-card p {
+  font-size: 12px;
+  color: #666;
+}
+
+.cafe-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #d2691e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cafe-card a:hover {
+  text-decoration: underline;
+}
+
+  /* ...............Cafe Harmony section end..................  */
+
+
+
+
+
+
+  /* ...............main image section start..................  */
+
+.main-image{
+    
+    position: relative;
+    height: 105vh;
+    background: url('images/h1-bacground-img-2.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .main-image-logo {
+    position: absolute;
+    top: 50px; /* Adjust this value to move it closer to the top */
+  }
+
+  /* ...............main image section end..................  */
+
+
+
+
+  /* ..........................count-section start.................... */
+  .count-section {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center;
+    padding: 50px 0;
+    background-color: #ffffff; /* Light background for contrast */
+  }
+  
+  .count-container {
+    display: flex;
+    justify-content: space-around; /* Even spacing between boxes */
+    align-items: center;
+    width: 80%; /* Adjust width as needed */
+    max-width: 1200px;
+    flex-wrap: wrap; /* Ensures responsiveness */
+  }
+  
+  .count-box {
+    text-align: center;
+    padding: 20px;
+    background: #fff;  
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
+    border-radius: 10px;
+    width: 22%; 
+    min-width: 200px;
+  }
+  
+  .count-box h2 {
+    font-size:60px;
+    color: #c17a50; /* Coffee-themed color */
+    font-weight: bold;
+  }
+  
+  .count-box h3 {
+    font-size: 30px;
+    margin-top: 10px;
+    font-size: 16px; /* Adjust the size as needed */
+  font-weight: bold;
+  }
+  
+  .count-box p {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  /* ..........................count-section end....................... */
+
+
+
+
+
+  /* ....................coffee corner start............ */
+  .coffee-corner {
+    background-image: url('images/bg.jpg');
+    padding: 40px 0;
+    text-align: center;
+}
+
+.coffee-corner h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.coffee-corner p {
+    font-size: 16px;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+}
+
+/* Coffee List */
+.coffee-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.coffee-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.coffee-item img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.coffee-name {
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.price {
+    color: #d2691e;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Hover Effects */
+.coffee-item:hover {
+    transform: scale(1.07);
+    /* box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); */
+}
+
+.coffee-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Click Effect */
+.coffee-item:active {
+    transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .coffee-list {
+        gap: 15px;
+    }
+    .coffee-item {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .coffee-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .coffee-item {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .coffee-corner h1 {
+        font-size: 28px;
+    }
+    .coffee-corner p {
+        font-size: 14px;
+    }
+    .coffee-item {
+        width: 100%;
+    }
+}
+/* .............galary start............. */
+.gallery-wrapper {
+  overflow-x: auto; /* Enables horizontal scrolling */
+  width: 100%; /* Prevents any overflow */
+  padding: 10px 0;
+}
+
+/* .............Gallery (4 Columns, 2 Rows Default)............. */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  grid-template-rows: repeat(2, auto); /* 2 rows */
+  gap: 10px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* .............Gallery Images............. */
+.gallery img {
+  width: 100%; /* Ensures images fit inside grid */
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* .............Tablet Screens (≤1024px) - 2 Columns, 4 Rows............. */
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(4, auto); /* 4 rows */
+  }
+}
+
+/* .............Small Screens (≤768px) - Horizontal Scroll............. */
+@media (max-width: 768px) {
+  .gallery {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping */
+    gap: 10px;
+    width: fit-content;
+  }
+
+  .gallery img {
+    width: 200px; /* Fixes width to keep horizontal scrolling manageable */
+    flex: 0 0 auto; /* Prevents images from shrinking */
+  }
+}
+
+
+/* .............galary end............. */
+/* .............logo start............. */
+/* Logo collection section */
+.logo-collection {
+  display: flex;
+  justify-content: center; /* Align items in the center horizontally */
+  align-items: center; /* Align items in the center vertically */
+  padding: 20px; /* Add some padding around the collection */
+}
+
+.logo-container {
+  display: flex; /* Ensure the logos are in a row */
+  gap: 20px; /* Add space between logos */
+}
+
+.logo-box {
+  flex: 0 0 auto; /* Prevent logos from shrinking or growing */
+  width: 180px; /* Set a fixed size for logos */
+  height: 180px; /* Set a fixed height for logos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-box img {
+  max-width: 100%; /* Ensure the images don't overflow the box */
+  height: auto;
+}
+
+/* Media Query for small screens */
+@media (max-width: 600px) {
+  .logo-container {
+    flex-direction: column; /* Stack logos vertically on small screens */
+    gap: 10px; /* Reduce space between logos */
+  }
+
+  .logo-box {
+    width: 120px; /* Adjust logo size for small screens */
+    height: 120px;
+  }
+}
+
+/* Media Query for medium screens (tablets) */
+@media (max-width: 900px) {
+  .logo-box {
+    width: 160px; /* Adjust logo size for medium screens */
+    height: 160px;
+  }
+}
+
+
+
+/* .............logo end............. */
+/* .............contact start............. */
+.contact {
+  font-family: Arial, sans-serif;
+  color: #b3a6a6;
+  text-align: center;
+  background: url('images/footer-bg.jpg') no-repeat center center/cover; /* Background settings */
+  background-size: cover; /* Ensure the background image covers the entire container */
+  background-position: center center; /* Keep the background centered */
+  height: 100vh; /* Ensure it covers the full height of the viewport */
+  display: flex;
+  flex-direction: column; /* Stack the content vertically */
+  justify-content: center; /* Center the content vertically */
+  align-items: center; /* Center the content horizontally */
+  padding: 20px;
+  position: relative; /* For overlay positioning */
+  box-sizing: border-box;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  z-index: -1; /* Place the overlay behind the content */
+}
+
+.contact .logo {
+  max-width: 200px; /* Limit the logo size */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.contact p a {
+  color: inherit; /* Uses the same color as the parent element */
+  text-decoration: none; /* Removes underline */
+  font-weight: bold; /* Optional: Make it bold */
+}
+
+.contact p a:hover {
+  color: #d2691e; /* Optional: Changes color on hover */
+  text-decoration: underline; /* Optional: Adds underline on hover */
+}
+
+.contact .info {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.contact p:last-of-type {
+  margin-bottom: 0; /* Remove margin from the last paragraph */
+}
+
+/* .............contact end............. */
+
+/* Media Queries for responsive design */
+
+/* For small screens (mobile phones) */
+@media (max-width: 600px) {
+  .contact p {
+    font-size: 1rem; /* Smaller font size for small screens */
+    line-height: 1.4;
+  }
+
+  .contact .info {
+    font-size: 1.2rem;
+  }
+
+  .contact .logo {
+    max-width: 150px; /* Adjust logo size for small screens */
+  }
+
+  /* Ensure background image scales well on mobile */
+  .contact {
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Prevent parallax-like effect on mobile */
+  }
+}
+
+/* For larger screens (tablets and up) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .contact p {
+    font-size: 1.1rem; /* Adjust font size for medium-sized screens */
+  }
+
+  .contact .logo {
+    max-width: 180px; /* Adjust logo size for tablets */
+  }
+
+  /* Ensure background image covers well on tablet-sized screens */
+  .contact {
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* For larger screens (desktop and up) */
+@media (min-width: 901px) {
+  .contact {
+    background-size: cover;
+    background-position: center;
+  }
+}
+/* ........footer start............ */
+.footer {
+  background-color: #111;
+  color: rgb(167, 160, 160);
+  padding: 20px 0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  gap: 20px;
+}
+
+.copyright {
+  font-size: 12px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+.footer-nav a {
+  color: rgb(167, 160, 160);
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+   padding: 5px;
+}
+
+.footer-nav a:hover {
+  text-decoration: none;
+  color: #d4af37;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons a {
+  color: rgb(167, 160, 160);
+  font-size: 18px;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.social-icons a:hover {
+  color: #d4af37;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-nav a {
+    color: rgb(167, 160, 160);
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0 20px; /* Increases gap between nav links */
+  }
+  
+  .social-icons a {
+    color: rgb(167, 160, 160);
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 15px; /* Increases gap between social icons */
+  }
+  
+}
+
+
+/* ........footer end............ */
